@@ -62,10 +62,8 @@ export default class CircuitBreaker {
 
   private scheduleCircuitReset(): void {
     setTimeout(() => {
-      // You can add logic here to check if the circuit is still open
-      // and decide whether to reset or keep it open based on external conditions
-
-      // For simplicity, resetting the circuit after the timeout for now
+      console.log('Closing circuit. Resetting consecutive failures.');
+      console.log('Should executea retry of all the delayed transactions');
       this.circuitOpen = false;
       this.consecutiveFailures = 0;
       this.lastFailureTimestamp = null;
