@@ -1,7 +1,6 @@
 // src/services/circuitBreakerService.ts
 import CircuitBreaker from '../utils/circuitBreaker';
 import OperationResult from '../models/transactions';
-import redisClient from '../connection_providers/redis.connection.provider';
 
 
 
@@ -10,7 +9,6 @@ const circuitBreaker = new CircuitBreaker({
   timeout: 5000,
 });
 
-const transactionCacheKey = 'transactionCache';
 
 async function performCriticalOperation(transactionId: string): Promise<string> {
     try {
